@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">AndroidDataBinding</string>
+
+    <string name="strPromptSexo">Sexo</string>
+
+    <string name="strBusquedaDePaciente">Realizando Búsqueda..</string>
+
+    <string name="strControlApi">control</string>
+    <string name="strIdentificadorDispositivo">identificador</string>
+    <string name="strUrlLlenarDatosSpinner">spinners-obtenerDatosAgregarAfiliacion</string>
 </resources>

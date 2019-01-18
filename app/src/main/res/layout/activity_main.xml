@@ -1,17 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
     <data>
-        <variable name="person" type="com.example.adrian.androiddatabinding.Person"/>
+        <variable name="personaAfiliacion" type="com.example.adrian.androiddatabinding.clasesBinding.PersonaAfiliacion"/>
     </data>
-    <LinearLayout
-        android:orientation="vertical"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <TextView android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity" >
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/color14"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingBottom="10dp">
+
+                    <EditText
+                        android:id="@+id/txtNombre"
+                        android:layout_width="match_parent"
+                        android:layout_height="65dp"
+                        android:background="#ffff"
+                        android:inputType="text"
+                        android:hint="Nombre (s)"
+                        android:text="@={personaAfiliacion.nombres}"
+                        android:textCursorDrawable="@null"
+                        android:maxLines="1" >
+                        <requestFocus />
+                    </EditText>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingBottom="10dp">
+
+                    <EditText
+                        android:id="@+id/txtApellidoPaterno"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="65dp"
+                        android:background="#ffff"
+                        android:layout_marginEnd="10dp"
+                        android:inputType="text"
+                        android:nextFocusDown="@+id/txtApellidoMaterno"
+                        android:hint="Apellido Paterno"
+                        android:text="@={personaAfiliacion.paterno}"
+                        android:textCursorDrawable="@null"
+                        android:maxLines="1" >
+                    </EditText>
+
+                    <EditText
+                        android:id="@+id/txtApellidoMaterno"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="65dp"
+                        android:background="#ffff"
+                        android:inputType="text"
+                        android:hint="Apellido Materno"
+                        android:text="@={personaAfiliacion.materno}"
+                        android:textCursorDrawable="@null"
+                        android:maxLines="1" >
+                    </EditText>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingBottom="10dp">
+
+                    <EditText
+                        android:id="@+id/txtFechaDeNacimiento"
+                        android:layout_width="match_parent"
+                        android:layout_height="65dp"
+                        android:background="#ffff"
+                        android:inputType="date"
+                        android:hint="Seleccione la fecha de nacimiento"
+                        android:text="@={personaAfiliacion.fechaNacimiento}"
+                        android:textCursorDrawable="@null"
+                        android:maxLines="1" >
+                    </EditText>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingBottom="10dp">
+
+                    <Spinner
+                        android:id="@+id/spnSexo"
+                        android:layout_width="match_parent"
+                        android:spinnerMode="dialog"
+                        android:layout_height="65dp"
+                        style="@style/spinner_style"
+                        android:selectedItemPosition="@={personaAfiliacion.selectedItemPositionSexo}"
+                        android:maxLines="1"
+                        android:prompt="@string/strPromptSexo"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <Button
+            android:id="@+id/btnPrueba"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{person.getFirstName()}"/>
-        <TextView android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@{person.getLastName()}"/>
-    </LinearLayout>
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="357dp"
+            android:layout_marginEnd="149dp"
+            android:text="Button" />
+
+    </RelativeLayout>
 </layout>
